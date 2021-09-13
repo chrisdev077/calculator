@@ -1,0 +1,130 @@
+@import '_variables.scss';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: $bg-main;
+  height: 100vh;
+  font-family: 'Space Mono', monospace;
+  @include center-flex();
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+  }
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+h1 {
+  color: $bg-btn;
+  flex: 0;
+  line-height: 1em;
+  padding: 1em;
+}
+label {
+  display: block;
+  color: $bg-btn;
+}
+input {
+  text-align: right;
+  color: $bg-btn;
+  font-weight: 700;
+  -moz-appearance: textfield;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-container;
+  border-radius: 1rem;
+  padding: 1.5em;
+  flex: 1;
+
+  .billing-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+    .bill-input {
+      flex-grow: 1;
+
+      .title {
+        position: relative;
+      }
+      .title:before {
+        content: '';
+        color: $bg-main;
+        position: absolute;
+        left: 10px;
+        top: 5px;
+        bottom: 0;
+        width: 1em;
+        background-image: url('/images/icon-dollar.svg');
+        background-repeat: no-repeat;
+        background-position: 2px 3px;
+      }
+    }
+    .tip-selection {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 2;
+
+      label {
+        margin-bottom: 1em;
+      }
+      .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 0.5em;
+        flex-grow: 1;
+
+        button:not(.custom) {
+          color: $b;
+          background-color: $bg-btn;
+        }
+        button {
+          height: 2.5em;
+          font-weight: 700;
+          border-radius: 0.25em;
+          cursor: pointer;
+          border: none;
+        }
+
+        button:hover {
+          background-color: $bg-btn-select;
+          color: $bg-btn;
+        }
+        .custom {
+          background-color: $b;
+          color: $bg-label;
+        }
+      }
+    }
+    .total-person-input {
+      flex-grow: 1;
+
+      .icon-2 {
+        position: relative;
+      }
+      .icon-2:before {
+        content: '';
+        color: $bg-main;
+        position: absolute;
+        left: 10px;
+        top: 5px;
+        bottom: 0;
+        width: 1em;
+        background-image: url('/images/icon-person.svg');
+        background-repeat: no-repeat;
+        background-position: 2px 3px;
+      }
+    }
+  }
+  .tipping-container {
+    flex-grow: 1;
+    background-color: $bg-btn;
+    border-radius: 1rem;
+  }
+}
