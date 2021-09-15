@@ -20,7 +20,7 @@
     <title>Frontend Mentor | Tip calculator app</title>
   </head>
   <body>
-    <script src="/index.js"></script>
+    
     <h1>
       SPLI <br />
       TTER
@@ -30,31 +30,38 @@
         <div class="bill-input">
           <label for="bill">Bill</label>
           <label class="title">
-            <input type="number" step="0.01" placeholder="0" />
+            <input type="number" id="cost" step="0.01" placeholder="0" value=0/>
           </label>
         </div>
         <div class="tip-selection">
           <label>Select Tip %</label>
           <div class="buttons">
-            <button>5%</button>
-            <button>10%</button>
-            <button>15%</button>
-            <button>25%</button>
-            <button>50%</button>
-            <button class="custom">Custom</button>
+            <button class="percent" value="5">5%</button>
+            <button class="percent" value="10">10%</button>
+            <button class="percent" value="15">15%</button>
+            <button class="percent" value="25">25%</button>
+            <button class="percent" value="50">50%</button>
+            <input class="custom" id="tip" type="number" placeholder="Custom" value=0>
           </div>
         </div>
         <div class="total-person-input">
           <label>Number of People</label>
           <label class="icon-2" for="">
-            <input type="number" step="1" placeholder="0" />
+            <input type="number" id="persons" step="1" placeholder="0" value=1/>
           </label>
         </div>
       </div>
       <div class="tipping-container">
-        <p>Tip Amount / person</p>
-        <p>Total / person</p>
-        <button>Reset</button>
+        <div class="split-container">
+          <p class="description">Tip Amount</p>
+          <p id="tip-amount" class="total">0.00</p>
+        </div>
+        <div class="split-container">
+          <p class="description">Total</p>
+          <p id="total" class="total">0.00</p>
+        </div>
+        <div class="empty-space"></div>
+        <button id="reset">Reset</button>
       </div>
     </div>
     <footer class="attribution">
@@ -63,5 +70,6 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Chris</a>.
     </footer>
+    <script src="/index.js"></script>
   </body>
 </html>

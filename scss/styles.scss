@@ -29,9 +29,27 @@ label {
 }
 input {
   text-align: right;
+  width: 100%;
   color: $bg-btn;
   font-weight: 700;
   -moz-appearance: textfield;
+}
+
+button:not(.custom) {
+  color: $b;
+  background-color: $bg-btn;
+}
+button {
+  height: 2.5em;
+  font-weight: 700;
+  border-radius: 0.25em;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background-color: $bg-btn-select;
+  color: $bg-btn;
 }
 
 .container {
@@ -41,7 +59,7 @@ input {
   border-radius: 1rem;
   padding: 1.5em;
   flex: 1;
-
+  max-width: 1440px;
   .billing-container {
     display: flex;
     flex-direction: column;
@@ -78,27 +96,18 @@ input {
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 0.5em;
-        flex-grow: 1;
+        row-gap: 0.3em;
+        flex: 1 1 50%;
 
-        button:not(.custom) {
-          color: $b;
-          background-color: $bg-btn;
-        }
-        button {
-          height: 2.5em;
-          font-weight: 700;
-          border-radius: 0.25em;
-          cursor: pointer;
-          border: none;
-        }
-
-        button:hover {
-          background-color: $bg-btn-select;
-          color: $bg-btn;
-        }
         .custom {
           background-color: $b;
+          border: none;
           color: $bg-label;
+          width: 100%;
+          height: 2.5em;
+          border-radius: 0.5em;
+          text-align: right;
+          padding-right: 1em;
         }
       }
     }
@@ -123,8 +132,88 @@ input {
     }
   }
   .tipping-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1em;
     flex-grow: 1;
     background-color: $bg-btn;
     border-radius: 1rem;
+    margin-top: 1em;
+
+    button {
+      background-color: $bg-btn-select;
+      // pointer-events: none;
+      opacity: 1;
+    }
+
+    .split-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1em;
+
+      .description {
+        color: $bg-container;
+        padding-right: 1em;
+      }
+      .description::after {
+        content: '/ person';
+        display: block;
+        font-size: 0.65rem;
+        color: $bg-main;
+      }
+      .total {
+        font-size: 2em;
+        color: $bg-btn-select;
+        font-weight: 600;
+      }
+      .total::before{
+        content:"$"
+      }
+    }
+  }
+}
+
+@media (min-width: 650px) {
+  h1 {
+    flex-basis: 25%;
+    padding-top: 3em;
+  }
+  .container {
+    flex-direction: row;
+    flex-basis: 50%;
+    max-width: 80rem;
+    gap: 5%;
+
+    .billing-container {
+      flex-basis: 50%;
+      .tip-selection {
+        .buttons {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+    }
+    .tipping-container {
+      display: flex;
+      justify-content: flex-start;
+      flex-basis: 50%;
+      margin-bottom: 1em;
+      // ugly hack?
+      .empty-space {
+        flex-basis: 45%;
+      }
+      div:nth-child(1) {
+        margin: 0.5em;
+        flex-basis: 15%;
+      }
+      div:nth-child(2) {
+        margin: 0.5em;
+        flex-basis: 15%;
+      }
+    }
+  }
+  .attribution {
+    flex-basis: 25%;
   }
 }
