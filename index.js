@@ -1,4 +1,3 @@
-
 // Retrieve all the necessary elements
 const cost = document.getElementById("cost");
 const persons = document.getElementById("persons");
@@ -9,29 +8,28 @@ const reset_button = document.getElementById("reset");
 const tip = document.getElementById("tip");
 
 function get_btn_tip(value) {
-    if(cost.value >=1 && persons.value >=1){
-    total_without_tip = cost.value / persons.value;
-    addition = (total_without_tip / 100) * value;
-    total = total_without_tip + addition;
-    tip_amount_elem.innerHTML = addition.toFixed(2);;
-    total_elem.innerHTML = total.toFixed(2);
+    if (cost.value >= 1 && persons.value >= 1) {
+        total_without_tip = cost.value / persons.value;
+        addition = (total_without_tip / 100) * value;
+        total = total_without_tip + addition;
+        tip_amount_elem.innerHTML = addition.toFixed(2);;
+        total_elem.innerHTML = total.toFixed(2);
 
     }
 }
 
 function get_custom_tip() {
 
-    if(cost.value >=1 && persons.value>=1){
+    if (cost.value >= 1 && persons.value >= 1) {
         total_without_tip = cost.value / persons.value;
         addition = (total_without_tip / 100) * tip.value;
         total = total_without_tip + addition;
         tip_amount_elem.innerHTML = addition.toFixed(2);;
         total_elem.innerHTML = total.toFixed(2);
     }
-    
+
 
 }
-
 
 //add onClick event to all the buttons
 for (const b of buttons) {
@@ -40,7 +38,6 @@ for (const b of buttons) {
         get_btn_tip(t);
     }
 }
-
 tip.oninput = () => {
     get_custom_tip();
 }
